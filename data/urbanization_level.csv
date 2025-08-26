@@ -1,0 +1,12 @@
+;provinces;level_urbanization;area
+0;Noord-Holland (PV);Extremely urbanised;Noord-Nederland (LD)
+1;Utrecht (PV);Strongly urbanised;West-Nederland (LD)
+2;Noord-Brabant (PV);Strongly urbanised;Zuid-Nederland (LD)
+3;Gelderland (PV);Moderately urbanised;Oost-Nederland (LD)
+4;Limburg (PV);Moderately urbanised;Zuid-Nederland (LD)
+5;Overijssel (PV);Moderately urbanised;Oost-Nederland (LD)
+6;Flevoland (PV);Moderately urbanised;West-Nederland (LD)
+7;Groningen (PV);Hardly urbanised;Noord-Nederland (LD)
+8;Drenthe (PV);Hardly urbanised;Noord-Nederland (LD)
+9;Fryslân (PV);Hardly urbanised;Noord-Nederland (LD)
+10;Zeeland (PV);Hardly urbanised;Zuid-Nederland (LD)

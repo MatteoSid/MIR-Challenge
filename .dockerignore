@@ -1,0 +1,21 @@
+# VCS and local environments
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+
+# Project artifacts not needed in image
+*.ipynb
+*.pdf
+*.md
+
+# Data and local-only dirs (but keep CSV metadata files)
+/data/*.sql
+/dataset/
+/tests/
+# Allow CSV metadata files
+!/data/*.csv
+
+# OS files
+.DS_Store

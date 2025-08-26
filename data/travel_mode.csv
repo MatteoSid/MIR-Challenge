@@ -1,0 +1,8 @@
+code|mode|description
+A048583|Passenger car (driver)|This includes drivers of a passenger car (also: passenger car in use for work or supplied by the company,service car,lease car (business or private),courtesy or rental car,loaned car,passenger car assistance vehicle),but excluding taxi drivers and delivery van drivers.
+A048584|Passenger car (passenger)|Person who rides along in a passenger car (with the exception of passenger taxi and passenger delivery van).
+A018981|Train|Includes: express train,stopping train,sprinter,high-speed train,channel tunnel train,TGV,ICE.
+A018982|Bus/tram/metro|Bus: this includes only (scheduled) buses for public transport such as: city bus,bus,interliner,call-up bus service,trolley bus,coach only if used for (replacement) of public transport,transferium bus. Tram: also includes light rail,high-speed tram,RandstadRail. Metro: underground,subway.
+A018984|Bike|Bicycle: this includes: both a non-electric and electric bike,(also a speedpedelec with yellow license plate) but also a bicycle passenger who takes a seat on the back or front of a bike.
+A018985|Walking|This includes all travel on foot possibly with a walker,crutches,stick etcetera.
+A018986|Other|

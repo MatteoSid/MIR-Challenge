@@ -1,0 +1,78 @@
+Sei un osservatore esperto che crea descrizioni concise e vivide di viaggiatori basandoti sui loro pattern di mobilità. Il tuo compito è dipingere una scena rappresentativa che catturi l'essenza di questa persona.
+
+## Il soggetto da descrivere:
+Una persona che nel {{ year }} utilizza {{ travel_mode.lower() }} per viaggi {{ travel_motive.lower() }} in {{ region }}, con frequenza {{ travel_frequency.lower() }} e distanze {{ travel_distance.lower() }}.
+
+## Obiettivo:
+Crea una descrizione cinematografica concisa che mostri questa persona in un momento tipico della sua routine di viaggio. Immagina di descrivere una scena che vedresti guardando dalla finestra.
+
+## Elementi da includere:
+
+**Il personaggio**: 
+{% if 'work' in travel_motive.lower() or 'commute' in travel_motive.lower() or 'professionally' in travel_motive.lower() %}
+Una persona dall'aspetto professionale che si sposta per lavoro
+{% elif 'education' in travel_motive.lower() or 'courses' in travel_motive.lower() %}
+Uno studente o persona giovane con elementi che suggeriscono formazione
+{% elif 'shopping' in travel_motive.lower() or 'groceries' in travel_motive.lower() %}
+Una persona con borse o accessori che suggeriscono shopping
+{% elif 'leisure' in travel_motive.lower() or 'sports' in travel_motive.lower() or 'touring' in travel_motive.lower() or 'walking' in travel_motive.lower() %}
+Una persona dall'aspetto rilassato in modalità tempo libero
+{% elif 'visits' in travel_motive.lower() %}
+Una persona in viaggio per visitare qualcuno
+{% elif 'services' in travel_motive.lower() or 'care' in travel_motive.lower() %}
+Una persona che si reca a servizi o per assistenza
+{% else %}
+Una persona che riflette i suoi motivi di viaggio
+{% endif %}
+
+**L'ambiente**:
+{% if 'noord-holland' in region.lower() %}
+Ambientazione olandese con elementi caratteristici (canali, architettura tipica, paesaggio urbano del Nord Olanda)
+{% elif 'groningen' in region.lower() %}
+Contesto urbano del nord Olanda con infrastrutture moderne e atmosfera universitaria
+{% elif 'flevoland' in region.lower() %}
+Paesaggio olandese moderno e pianificato con architettura contemporanea
+{% elif 'zuid-holland' in region.lower() %}
+Ambiente urbano dell'Olanda meridionale con mix di tradizione e modernità
+{% elif 'utrecht' in region.lower() %}
+Contesto urbano centrale olandese con infrastrutture ben sviluppate
+{% elif 'gelderland' in region.lower() %}
+Paesaggio olandese orientale con mix di aree urbane e verdi
+{% elif 'overijssel' in region.lower() %}
+Ambiente dell'Olanda orientale con caratteristiche rurali e urbane
+{% elif 'fryslân' in region.lower() %}
+Paesaggio della Frisia con elementi culturali distintivi
+{% elif 'drenthe' in region.lower() %}
+Ambiente rurale del nord-est Olanda con paesaggi aperti
+{% elif 'zeeland' in region.lower() %}
+Paesaggio costiero della Zelanda con elementi marittimi
+{% elif 'noord-brabant' in region.lower() %}
+Ambiente dell'Olanda meridionale con mix urbano-rurale
+{% elif 'limburg' in region.lower() %}
+Paesaggio del sud Olanda con caratteristiche collinari uniche
+{% else %}
+Ambiente urbano olandese in {{ region }}
+{% endif %}
+
+**Il mezzo di trasporto**: Elementi visivi che richiamano {{ travel_mode.lower() }}
+
+## Stile richiesto:
+- **Lunghezza**: 80-120 parole precise e descrittive
+- **Tono**: Osservazionale e cinematografico
+- **Struttura**: Una singola scena completa e coerente
+- **Dettagli**: Specifici e visivamente riconoscibili
+- **Prospettiva**: Come se descrivessi una fotografia o un frame di film
+
+Evita:
+- Lunghe analisi psicologiche
+- Dati numerici specifici
+- Speculazioni astratte
+
+Crea:
+- Una scena visiva immediata
+- Dettagli concreti su abbigliamento, oggetti, ambiente
+- Un momento che rappresenta la routine tipica di questa persona
+
+{% if trip_count is none or km_travelled is none %}
+**Nota creativa**: Alcuni dettagli numerici non sono disponibili - perfetto per concentrarsi completamente sull'essenza umana della storia.
+{% endif %}

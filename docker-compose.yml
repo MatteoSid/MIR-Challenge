@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: mir_postgres
+    env_file:
+      - .env.docker
+    ports:
+      - "5433:5433"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mir_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mir_user -d mir_db -p 5433"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  api:
+    container_name: mir_api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.docker
+    environment:
+      - DATABASE_URL=postgresql://mir_user:mir_password@postgres:5433/mir_db
+      - GIT_PYTHON_REFRESH=quiet
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - mir_network
+
+  mlflow:
+      container_name: mlflow_mir
+      restart: "unless-stopped"
+      ports:
+        - "5001:5001"
+      build:
+        context: .
+        dockerfile: Dockerfile.mlflow
+      volumes:
+        - mlflow_data:/mlflow
+      networks:
+        - mir_network
+      entrypoint: mlflow server --host 0.0.0.0 --port 5001 --serve-artifacts --gunicorn-opts '--timeout 9999'
+
+volumes:
+  postgres_data:
+    driver: local
+  mlflow_data:
+    driver: local
+
+networks:
+  mir_network:
+    driver: bridge

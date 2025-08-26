@@ -1,0 +1,64 @@
+Create a photorealistic image showing:
+
+{% if 'work' in travel_motive.lower() or 'commute' in travel_motive.lower() or 'professionally' in travel_motive.lower() %}
+A professional-looking person commuting by {{ travel_mode.lower() }} in {{ region }}, carrying a briefcase or laptop bag, with a focused expression suggesting routine work travel.
+{% elif 'education' in travel_motive.lower() or 'courses' in travel_motive.lower() %}
+A young adult student traveling by {{ travel_mode.lower() }} in {{ region }}, carrying a backpack and books, with an environment suggesting education-related trips.
+{% elif 'shopping' in travel_motive.lower() or 'groceries' in travel_motive.lower() %}
+A person with shopping bags traveling by {{ travel_mode.lower() }} in {{ region }}, in an urban commercial setting with storefronts visible in the background.
+{% elif 'leisure' in travel_motive.lower() or 'sports' in travel_motive.lower() or 'touring' in travel_motive.lower() or 'walking' in travel_motive.lower() %}
+A relaxed person traveling by {{ travel_mode.lower() }} in {{ region }}, dressed casually with recreational equipment or casual attire, in a leisure-oriented setting.
+{% elif 'visits' in travel_motive.lower() %}
+A person traveling by {{ travel_mode.lower() }} in {{ region }} to visit someone, carrying personal items or gifts, with a warm, social expression.
+{% elif 'services' in travel_motive.lower() or 'care' in travel_motive.lower() %}
+A person traveling by {{ travel_mode.lower() }} in {{ region }} for services or care, with practical attire and a purposeful demeanor.
+{% else %}
+A person traveling by {{ travel_mode.lower() }} in {{ region }}, with attire and accessories that reflect their travel purposes.
+{% endif %}
+
+Environment details:
+{% if 'noord-holland' in region.lower() %}
+Dutch urban environment with canals, distinctive architecture, and typical Amsterdam/Noord-Holland street elements in the background.
+{% elif 'groningen' in region.lower() %}
+Northern Dutch city with modern infrastructure, bicycle-friendly streets, and university town atmosphere.
+{% elif 'flevoland' in region.lower() %}
+Modern planned Dutch landscape with clean urban design and contemporary architecture.
+{% elif 'zuid-holland' in region.lower() %}
+Dutch urban environment of Zuid-Holland with mix of traditional and modern architecture, urban infrastructure.
+{% elif 'utrecht' in region.lower() %}
+Central Dutch urban setting with well-developed infrastructure and typical Utrecht city elements.
+{% elif 'gelderland' in region.lower() %}
+Eastern Dutch landscape with mix of urban and green areas, typical Gelderland countryside elements.
+{% elif 'overijssel' in region.lower() %}
+Eastern Dutch environment with mix of rural and urban characteristics, Overijssel regional features.
+{% elif 'fryslân' in region.lower() %}
+Frisian landscape with distinctive cultural elements and northern Dutch countryside.
+{% elif 'drenthe' in region.lower() %}
+Rural northeastern Dutch environment with open landscapes and Drenthe countryside features.
+{% elif 'zeeland' in region.lower() %}
+Coastal Zeeland landscape with maritime elements and southwestern Dutch coastal features.
+{% elif 'noord-brabant' in region.lower() %}
+Southern Dutch environment with urban-rural mix and Noord-Brabant regional characteristics.
+{% elif 'limburg' in region.lower() %}
+Southern Dutch landscape with unique hilly features and Limburg regional elements.
+{% else %}
+Dutch urban setting in {{ region }} with contemporary infrastructure.
+{% endif %}
+
+{% if 'bike' in travel_mode.lower() %}
+Include bicycle or cycling elements, bike lanes, and cycling infrastructure typical of Dutch cities.
+{% elif 'passenger car' in travel_mode.lower() %}
+Include car or parking elements, urban driving context with Dutch road infrastructure.
+{% elif 'train' in travel_mode.lower() %}
+Include train station or railway elements, Dutch rail infrastructure and NS train context.
+{% elif 'bus' in travel_mode.lower() or 'tram' in travel_mode.lower() or 'metro' in travel_mode.lower() %}
+Include public transit elements like bus stops, tram lines, or metro stations typical of Dutch cities.
+{% elif 'walking' in travel_mode.lower() %}
+Urban pedestrian environment with sidewalks and pedestrian infrastructure.
+{% elif 'other' in travel_mode.lower() %}
+Mixed transportation context with various Dutch mobility options visible.
+{% else %}
+Modern transportation context appropriate for {{ travel_mode.lower() }} in Dutch urban setting.
+{% endif %}
+
+Style: Photorealistic, natural lighting, contemporary setting, professional photography quality. The scene should suggest {{ travel_frequency.lower() }} travel patterns and {{ travel_distance.lower() }} distances without showing technical data.
