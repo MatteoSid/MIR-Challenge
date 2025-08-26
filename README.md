@@ -42,10 +42,11 @@ L'API restituisce una risposta JSON contenente la descrizione testuale generata 
 
 ## Installazione ed Esecuzione
 
-1.  **Clonare il repository**
+1.  **Clonare il repository e installare le dipendenze**
     ```bash
     git clone https://github.com/MatteoSid/MIR-Challenge.git
     cd make-it-real
+    poetry install --no-root
     ```
 
 2.  **Configurare le variabili d'ambiente**
@@ -58,13 +59,18 @@ L'API restituisce una risposta JSON contenente la descrizione testuale generata 
     OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     ```
 
-3.  **Avviare i servizi con Docker Compose**
+3. **Inizializzare e popolare il database**
+    ```bash
+    make init-db
+    ```
+
+4.  **Avviare i servizi con Docker Compose**
     Questo comando costruirà le immagini e avvierà tutti i servizi necessari: l'API, il database PostgreSQL, MLflow e MinIO.
     ```bash
     docker compose up --build
     ```
     I servizi saranno disponibili ai seguenti indirizzi:
-    -   **Swagger FastAPI**: `http://localhost:8000/docs`
+    -   **Swagger FastAPI**: `http://localhost:8123/docs`
     -   **MLflow UI**: `http://localhost:5001`
 
 ## Inizializzazione del Database (Caricamento Dati)
@@ -121,7 +127,7 @@ Questo endpoint genera una descrizione dettagliata delle abitudini di viaggio di
 
 ```bash
 curl -X 'POST' \
-  'http://localhost:8000/generate-text' \
+  'http://localhost:8123/generate-text' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -163,7 +169,7 @@ Questo endpoint genera un'immagine rappresentativa del profilo di viaggio dell'u
 
 ```bash
 curl -X 'POST' \
-  'http://localhost:8000/generate-image' \
+  'http://localhost:8123/generate-image' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
